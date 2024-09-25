@@ -44,7 +44,7 @@ export default buildConfig({
   // This config helps us configure global or default features that the other editors can inherit
   editor: lexicalEditor({}),
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
+    url: process.env.MONGODB_URI || '',
   }),
   collections: [Media, Users],
   plugins: [
