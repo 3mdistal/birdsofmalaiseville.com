@@ -10,6 +10,8 @@ import { Media } from './collections/Media'
 import Users from './collections/Users'
 import { Birds } from './collections/Birds'
 import { Essays } from './collections/Essays'
+import { HomepageEssays } from './globals/HomepageEssays'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -42,12 +44,12 @@ export default buildConfig({
       ],
     },
   },
-  // This config helps us configure global or default features that the other editors can inherit
   editor: lexicalEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
   collections: [Media, Users, Birds, Essays],
+  globals: [HomepageEssays],
   plugins: [
     vercelBlobStorage({
       token: process.env.BLOB_READ_WRITE_TOKEN || '',

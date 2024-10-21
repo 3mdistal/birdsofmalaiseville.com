@@ -22,7 +22,9 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
+  globals: {
+    'homepage-essays': HomepageEssay;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -221,6 +223,16 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "homepage-essays".
+ */
+export interface HomepageEssay {
+  id: string;
+  cards?: (string | Essay)[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

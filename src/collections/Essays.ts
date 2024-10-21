@@ -77,9 +77,7 @@ export const Essays: CollectionConfig = {
     ],
   },
   versions: {
-    drafts: {
-      autosave: true,
-    },
+    drafts: true,
     maxPerDoc: 10,
   },
 }
