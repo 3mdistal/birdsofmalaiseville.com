@@ -2,6 +2,9 @@ import { GlobalConfig } from 'payload'
 
 export const HomepageEssays: GlobalConfig = {
   slug: 'homepage-essays',
+  admin: {
+    group: 'Pages',
+  },
   fields: [
     {
       name: 'cards',
@@ -13,4 +16,8 @@ export const HomepageEssays: GlobalConfig = {
       },
     },
   ],
+  versions: {
+    drafts: true,
+    max: 10,
+  },
 }

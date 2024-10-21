@@ -6,8 +6,8 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
-import { Media } from './collections/Media'
 import Users from './collections/Users'
+import { Media } from './collections/Media'
 import { Birds } from './collections/Birds'
 import { Essays } from './collections/Essays'
 import { HomepageEssays } from './globals/HomepageEssays'
@@ -48,8 +48,8 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
-  collections: [Media, Users, Birds, Essays],
   globals: [HomepageEssays],
+  collections: [Users, Media, Birds, Essays],
   plugins: [
     vercelBlobStorage({
       token: process.env.BLOB_READ_WRITE_TOKEN || '',

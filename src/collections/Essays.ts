@@ -1,10 +1,13 @@
 import { CollectionConfig } from 'payload'
 import slugify from 'slugify'
 
+// todo: Add footnotes functionality if possible.
+
 export const Essays: CollectionConfig = {
   slug: 'essays',
   admin: {
     useAsTitle: 'title',
+    group: 'Content',
   },
   fields: [
     {

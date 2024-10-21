@@ -5,6 +5,7 @@ const Users: CollectionConfig = {
   admin: {
     defaultColumns: ['name', 'email'],
     useAsTitle: 'name',
+    group: 'Settings',
   },
   access: {
     read: ({ req, id }) => {

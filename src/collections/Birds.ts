@@ -4,6 +4,7 @@ export const Birds: CollectionConfig = {
   slug: 'birds',
   admin: {
     useAsTitle: 'name',
+    group: 'Content',
   },
   access: {
     read: () => true,
