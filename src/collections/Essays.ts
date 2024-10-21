@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload'
+import slugify from 'slugify'
 
 export const Essays: CollectionConfig = {
   slug: 'essays',
@@ -21,6 +22,7 @@ export const Essays: CollectionConfig = {
       admin: {
         position: 'sidebar',
         description: 'The url of the essay (after `https://birdsofmalaiseville.com/essays/`).',
+        hidden: true,
       },
     },
     {
@@ -64,6 +66,16 @@ export const Essays: CollectionConfig = {
       type: 'richText',
     },
   ],
+  hooks: {
+    beforeChange: [
+      ({ data }) => {
+        if (data.title) {
+          data.slug = slugify(data.title, { lower: true })
+        }
+        return data
+      },
+    ],
+  },
   versions: {
     drafts: {
       autosave: true,

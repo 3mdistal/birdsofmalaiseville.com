@@ -72,6 +72,7 @@ export interface Media {
 export interface User {
   id: string;
   name?: string | null;
+  isAdmin?: boolean | null;
   updatedAt: string;
   createdAt: string;
   email: string;
