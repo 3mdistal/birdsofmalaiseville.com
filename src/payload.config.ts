@@ -1,13 +1,14 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import sharp from 'sharp' // editor-import
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
 import { Media } from './collections/Media'
 import Users from './collections/Users'
+import { Birds } from './collections/Birds'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -46,9 +47,14 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
-  collections: [Media, Users],
+  collections: [Media, Users, Birds],
   plugins: [
-    payloadCloudPlugin(), // storage-adapter-placeholder
+    vercelBlobStorage({
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+      collections: {
+        [Media.slug]: true,
+      },
+    }),
   ],
   secret: process.env.PAYLOAD_SECRET!,
   sharp,
