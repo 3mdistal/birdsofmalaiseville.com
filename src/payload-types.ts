@@ -14,6 +14,7 @@ export interface Config {
     media: Media;
     users: User;
     birds: Bird;
+    essays: Essay;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -96,6 +97,67 @@ export interface Bird {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "essays".
+ */
+export interface Essay {
+  id: string;
+  title: string;
+  slug: string;
+  bird: string | Bird;
+  quote: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  sections: {
+    body?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    id?: string | null;
+  }[];
+  birdReport?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -112,6 +174,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'birds';
         value: string | Bird;
+      } | null)
+    | ({
+        relationTo: 'essays';
+        value: string | Essay;
       } | null);
   globalSlug?: string | null;
   user: {

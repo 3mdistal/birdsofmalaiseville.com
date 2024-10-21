@@ -9,7 +9,7 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { Media } from './collections/Media'
 import Users from './collections/Users'
 import { Birds } from './collections/Birds'
-
+import { Essays } from './collections/Essays'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -47,7 +47,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
-  collections: [Media, Users, Birds],
+  collections: [Media, Users, Birds, Essays],
   plugins: [
     vercelBlobStorage({
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
