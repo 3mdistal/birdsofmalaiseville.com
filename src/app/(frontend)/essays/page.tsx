@@ -19,8 +19,7 @@ export default async function Essays() {
   return (
     <>
       {birdsWithEssays.map(({ bird, essays }) => (
-        <div key={bird.id} className="bird-section">
-          {/* Bird card - shown once */}
+        <div key={bird.id}>
           {typeof bird.cardWithText !== 'string' && (
             <Image
               src={bird.cardWithText.url ?? ''}
@@ -29,10 +28,8 @@ export default async function Essays() {
               height={bird.cardWithText.height ?? 0}
             />
           )}
-
-          {/* Essays for this bird */}
           {essays.map((essay) => (
-            <div key={essay.id} className="essay">
+            <div key={essay.id}>
               <a href={`/essays/${essay.slug}`}>
                 <h2>{essay.title}</h2>
               </a>

@@ -34,6 +34,7 @@ export const Birds: CollectionConfig = {
       admin: {
         description: 'A version of the card without the label.',
       },
+      required: true,
     },
   ],
 }

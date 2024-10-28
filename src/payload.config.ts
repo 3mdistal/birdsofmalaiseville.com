@@ -10,7 +10,7 @@ import Users from './collections/Users'
 import { Media } from './collections/Media'
 import { Birds } from './collections/Birds'
 import { Essays } from './collections/Essays'
-import { HomepageEssays } from './globals/HomepageEssays'
+import { Homepage } from './globals/Homepage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -48,7 +48,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
-  globals: [HomepageEssays],
+  globals: [Homepage],
   collections: [Users, Media, Birds, Essays],
   plugins: [
     vercelBlobStorage({

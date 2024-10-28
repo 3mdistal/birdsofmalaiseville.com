@@ -23,7 +23,7 @@ export interface Config {
     defaultIDType: string;
   };
   globals: {
-    'homepage-essays': HomepageEssay;
+    homepage: Homepage;
   };
   locale: null;
   user: User & {
@@ -94,7 +94,7 @@ export interface Bird {
   id: string;
   name: string;
   cardWithText: string | Media;
-  cardWithoutText?: (string | null) | Media;
+  cardWithoutText: string | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -229,11 +229,50 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "homepage-essays".
+ * via the `definition` "homepage".
  */
-export interface HomepageEssay {
+export interface Homepage {
   id: string;
-  cards?: (string | Essay)[] | null;
+  title: string;
+  subtitle: string;
+  intro: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  intro_html?: string | null;
+  essays: (string | Essay)[];
+  bios: {
+    name: string;
+    text: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    text_html?: string | null;
+    image: string | Media;
+    id?: string | null;
+  }[];
   _status?: ('draft' | 'published') | null;
   updatedAt?: string | null;
   createdAt?: string | null;
