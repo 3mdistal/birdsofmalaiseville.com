@@ -9,7 +9,9 @@ export const getEssay = async (slug: string) => {
     where: {
       slug: { equals: slug },
     },
+    depth: 2,
   })
 
+  console.log(essay.docs[0])
   return essay
 }
