@@ -28,6 +28,23 @@ export default async function Home() {
             ),
         )}
       </div>
+      <h2>About</h2>
+      {homepage.bios.map((bio) => (
+        <div key={bio.id}>
+          {typeof bio.image !== 'string' && (
+            <Image
+              src={bio.image.url ?? ''}
+              alt={bio.image.alt}
+              width={bio.image.width ?? 0}
+              height={bio.image.height ?? 0}
+            />
+          )}
+          <p>
+            <span>{bio.name}</span>
+            <span dangerouslySetInnerHTML={{ __html: bio.text_html as TrustedHTML }} />
+          </p>
+        </div>
+      ))}
     </>
   )
 }
