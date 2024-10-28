@@ -1,5 +1,6 @@
 import { CollectionConfig } from 'payload'
 import slugify from 'slugify'
+import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
 
 export const Essays: CollectionConfig = {
   slug: 'essays',
@@ -40,6 +41,9 @@ export const Essays: CollectionConfig = {
     {
       name: 'quote',
       type: 'richText',
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
+      }),
       required: true,
       admin: {
         position: 'sidebar',
@@ -47,6 +51,7 @@ export const Essays: CollectionConfig = {
           'A quotation from the essay that acts as a preview for the user on the card. Strict word limit because of space available.',
       },
     },
+    lexicalHTML('quote', { name: 'quote_html' }),
     {
       name: 'sections',
       type: 'array',

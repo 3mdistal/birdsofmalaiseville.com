@@ -122,6 +122,7 @@ export interface Essay {
     };
     [k: string]: unknown;
   };
+  quote_html?: string | null;
   sections: {
     body?: {
       root: {
