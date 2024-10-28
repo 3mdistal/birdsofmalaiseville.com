@@ -5,11 +5,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
+        hostname: process.env.VERCEL_PROJECT_PRODUCTION_URL ?? '',
         protocol: 'https',
       },
       {
-        hostname: process.env.NEXT_PUBLIC_VERCEL_URL,
+        hostname: process.env.VERCEL_URL ?? '',
         protocol: 'https',
       },
     ],
