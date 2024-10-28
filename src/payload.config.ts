@@ -56,6 +56,7 @@ export default buildConfig({
       collections: {
         [Media.slug]: true,
       },
+      access: 'public',
     }),
   ],
   secret: process.env.PAYLOAD_SECRET!,
