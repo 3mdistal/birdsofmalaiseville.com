@@ -6,6 +6,7 @@ export const getAllBirds = async () => {
   const birds = await payload.find({
     collection: 'birds',
     sort: 'name',
+    limit: 30,
   })
   return birds
 }

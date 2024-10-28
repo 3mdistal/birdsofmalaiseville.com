@@ -1,22 +1,42 @@
-import { getAllEssays } from '@/utils/getAllEssays'
+import { getAllBirds } from '@/utils/getAllBirds'
+import { getEssaysByBird } from '@/utils/getEssaysByBird'
 import Image from 'next/image'
 
 export default async function Essays() {
-  const essays = await getAllEssays()
+  const birds = await getAllBirds()
+
+  // Create an array of birds with their essays
+  const birdsWithEssays = await Promise.all(
+    birds.docs.map(async (bird) => {
+      const essays = await getEssaysByBird(bird.id)
+      return {
+        bird,
+        essays: essays.docs,
+      }
+    }),
+  )
+
   return (
     <>
-      {essays.docs.map((essay) => (
-        <div key={essay.id}>
-          <h2>{essay.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: essay.quote_html as TrustedHTML }} />
-          {typeof essay.bird !== 'string' && typeof essay.bird?.cardWithText !== 'string' && (
+      {birdsWithEssays.map(({ bird, essays }) => (
+        <div key={bird.id} className="bird-section">
+          {/* Bird card - shown once */}
+          {typeof bird.cardWithText !== 'string' && (
             <Image
-              src={essay.bird.cardWithText.url ?? ''}
-              alt={essay.bird.cardWithText.alt}
-              width={essay.bird.cardWithText.width ?? 0}
-              height={essay.bird.cardWithText.height ?? 0}
+              src={bird.cardWithText.url ?? ''}
+              alt={bird.cardWithText.alt}
+              width={bird.cardWithText.width ?? 0}
+              height={bird.cardWithText.height ?? 0}
             />
           )}
+
+          {/* Essays for this bird */}
+          {essays.map((essay) => (
+            <div key={essay.id} className="essay">
+              <h2>{essay.title}</h2>
+              <div dangerouslySetInnerHTML={{ __html: essay.quote_html as TrustedHTML }} />
+            </div>
+          ))}
         </div>
       ))}
     </>
