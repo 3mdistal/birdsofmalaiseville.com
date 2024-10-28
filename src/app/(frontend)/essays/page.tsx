@@ -33,7 +33,9 @@ export default async function Essays() {
           {/* Essays for this bird */}
           {essays.map((essay) => (
             <div key={essay.id} className="essay">
-              <h2>{essay.title}</h2>
+              <a href={`/essays/${essay.slug}`}>
+                <h2>{essay.title}</h2>
+              </a>
               <div dangerouslySetInnerHTML={{ __html: essay.quote_html as TrustedHTML }} />
             </div>
           ))}

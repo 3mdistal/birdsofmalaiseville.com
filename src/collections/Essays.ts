@@ -59,7 +59,11 @@ export const Essays: CollectionConfig = {
         {
           name: 'body',
           type: 'richText',
+          editor: lexicalEditor({
+            features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
+          }),
         },
+        lexicalHTML('body', { name: 'body_html' }),
       ],
       admin: {
         description:
