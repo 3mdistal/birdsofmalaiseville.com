@@ -9,18 +9,13 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // images: {
-  //   remotePatterns: [
-  //     ...[NEXT_PUBLIC_SERVER_URL].map((item) => {
-  //       const url = new URL(item)
-
-  //       return {
-  //         hostname: url.hostname,
-  //         protocol: url.protocol.replace(':', ''),
-  //       }
-  //     }),
-  //   ],
-  // },
+  images: {
+    remotePatterns: [
+      {
+        hostname: '**',
+      },
+    ],
+  },
   reactStrictMode: true,
 }
 
