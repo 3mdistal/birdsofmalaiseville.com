@@ -74,7 +74,11 @@ export const Essays: CollectionConfig = {
     {
       name: 'birdReport',
       type: 'richText',
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [...defaultFeatures, HTMLConverterFeature({})],
+      }),
     },
+    lexicalHTML('birdReport', { name: 'birdReport_html' }),
   ],
   hooks: {
     beforeChange: [

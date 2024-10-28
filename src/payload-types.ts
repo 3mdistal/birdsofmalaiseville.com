@@ -157,6 +157,7 @@ export interface Essay {
     };
     [k: string]: unknown;
   } | null;
+  birdReport_html?: string | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
