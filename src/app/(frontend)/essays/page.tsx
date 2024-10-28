@@ -1,6 +1,7 @@
 import { getAllBirds } from '@/utils/getAllBirds'
 import { getEssaysByBird } from '@/utils/getEssaysByBird'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default async function Essays() {
   const birds = await getAllBirds()
@@ -30,9 +31,9 @@ export default async function Essays() {
           )}
           {essays.map((essay) => (
             <div key={essay.id}>
-              <a href={`/essays/${essay.slug}`}>
+              <Link href={`/essays/${essay.slug}`}>
                 <h2>{essay.title}</h2>
-              </a>
+              </Link>
               <div dangerouslySetInnerHTML={{ __html: essay.quote_html as TrustedHTML }} />
             </div>
           ))}

@@ -1,5 +1,6 @@
 import { getEssay } from '@/utils/getEssay'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default async function Essay({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug
@@ -23,6 +24,9 @@ export default async function Essay({ params }: { params: Promise<{ slug: string
       ))}
       <h2>Bird Report</h2>
       <div dangerouslySetInnerHTML={{ __html: essay.birdReport_html as TrustedHTML }} />
+      <Link href="/essays">
+        <p>View All Essays</p>
+      </Link>
     </>
   )
 }
