@@ -4,7 +4,9 @@
 
 .titleSection {
   padding-top: 20svh;
-  min-height: calc(100svh + var(--title-section-height) + calc(var(--title-section-height) / 2));
+  min-height: calc(
+    100svh + var(--title-section-height, 10svh) + calc(var(--title-section-height, 10svh) / 2)
+  );
 }
 
 .sticky {
