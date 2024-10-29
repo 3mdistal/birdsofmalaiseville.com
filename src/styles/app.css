@@ -12,14 +12,17 @@
 
   h1 {
     font-size: var(--h1-font-size);
+    margin-bottom: 0.25em;
   }
 
   h2 {
     font-size: var(--h2-font-size);
+    margin-bottom: 1em;
   }
 
   h3 {
     font-size: var(--h3-font-size);
+    margin-bottom: 1em;
   }
 
   p {

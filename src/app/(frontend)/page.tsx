@@ -7,7 +7,7 @@ export default async function Home() {
   const homepage = await getHomepage()
   return (
     <>
-      <Intro />
+      <Intro {...homepage} />
       <Essays />
       <About />
     </>

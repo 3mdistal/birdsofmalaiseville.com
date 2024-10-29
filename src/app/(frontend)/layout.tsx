@@ -1,7 +1,4 @@
-import '@/styles/reset.css'
-import '@/styles/app.css'
-import { signatureFont, serifFont } from '@/styles/fonts'
-import { fontSizes } from '@/styles/sizes/font-sizes'
+import Css from '@/styles/css'
 
 export const metadata = {
   title: 'Next.js',
@@ -10,19 +7,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${signatureFont.variable} ${serifFont.variable}`}
-      style={
-        {
-          '--h1-font-size': fontSizes.h1,
-          '--h2-font-size': fontSizes.h2,
-          '--h3-font-size': fontSizes.h3,
-          '--p-font-size': fontSizes.p,
-        } as React.CSSProperties
-      }
-    >
-      <body>{children}</body>
+    <html lang="en">
+      <body suppressHydrationWarning={true}>
+        <Css>
+          <div className="appRoot">{children}</div>
+        </Css>
+      </body>
     </html>
   )
 }

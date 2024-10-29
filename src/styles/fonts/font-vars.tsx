@@ -1,7 +1,7 @@
 import localFont from 'next/font/local'
 import { Ibarra_Real_Nova } from 'next/font/google'
 
-export const signatureFont = localFont({
+const signatureFont = localFont({
   src: './aAgreementSignature.otf',
   weight: '400',
   style: 'normal',
@@ -16,9 +16,20 @@ export const signatureFont = localFont({
   ],
 })
 
-export const serifFont = Ibarra_Real_Nova({
+const serifFont = Ibarra_Real_Nova({
   subsets: ['latin'],
   variable: '--font-serif',
   display: 'fallback',
   fallback: ['serif'],
 })
+
+export default function FontVars({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      className={`${signatureFont.variable} ${serifFont.variable}`}
+      style={{ display: 'contents' }}
+    >
+      {children}
+    </div>
+  )
+}
