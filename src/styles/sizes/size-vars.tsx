@@ -1,5 +1,6 @@
 import { fontSizes } from './font-sizes'
 import { paddingSizes } from './padding-sizes'
+import { widths } from './widths'
 
 export default function SizeVars({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +13,7 @@ export default function SizeVars({ children }: { children: React.ReactNode }) {
           '--p-font-size': fontSizes.p,
           '--big-p-font-size': fontSizes.bigP,
           '--padding-edges': paddingSizes.edges,
+          '--content-width': widths.contentWidth,
           display: 'contents',
         } as React.CSSProperties
       }

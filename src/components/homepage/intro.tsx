@@ -26,7 +26,11 @@ export default function Intro(homepage: Homepage) {
         </div>
       </div>
       <div className={styles.introSection}>
-        <div dangerouslySetInnerHTML={{ __html: homepage.intro_html as TrustedHTML }} />
+        <div
+          className={styles.introText}
+          dangerouslySetInnerHTML={{ __html: homepage.intro_html as TrustedHTML }}
+        />
+        <Image className={styles.nest} src="/nest.svg" alt="Nest" width={100} height={100} />
       </div>
     </section>
   )

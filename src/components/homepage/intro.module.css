@@ -1,28 +1,29 @@
 .intro {
+  padding-inline: var(--padding-edges);
 }
 
 .titleSection {
-  min-height: calc(100svh + var(--title-section-height) + 10svh);
   padding-top: 20svh;
-  height: fit-content;
+  min-height: calc(100svh + var(--title-section-height) + calc(var(--title-section-height) / 2));
 }
 
 .sticky {
   position: sticky;
-  top: 10svh;
+  top: calc(var(--title-section-height) / 2);
+  height: fit-content;
 }
 
 .title {
-  text-align: center;
   margin-bottom: 0;
+  text-align: center;
 }
 
 .subtitle {
   font-style: italic;
+  font-size: var(--big-p-font-size);
   letter-spacing: 0.15em;
   text-align: center;
   text-wrap: balance;
-  font-size: var(--big-p-font-size);
 }
 
 .trees {
@@ -32,6 +33,35 @@
 }
 
 .introSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-inline: auto;
+  padding-top: calc(var(--title-section-height) / 2);
+  max-width: var(--content-width);
   min-height: calc(100svh - var(--title-section-height));
-  padding-top: 10svh;
+
+  @media (max-width: 64rem) {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+}
+
+.introText {
+  & p:first-of-type {
+    &::first-letter {
+      font-size: var(--h3-font-size);
+      line-height: 0;
+      font-family: var(--font-signature);
+    }
+  }
+}
+
+.nest {
+  width: 50%;
+  object-fit: fit;
+
+  @media (max-width: 64rem) {
+    width: 100%;
+  }
 }

@@ -31,6 +31,7 @@
     "next": "^15.0.1",
     "payload": "beta",
     "payload-admin-bar": "^1.0.6",
+    "prettier-plugin-css-order": "^2.1.2",
     "prism-react-renderer": "^2.4.0",
     "react": "19.0.0-rc-cae764ce-20241025",
     "react-dom": "19.0.0-rc-cae764ce-20241025",
