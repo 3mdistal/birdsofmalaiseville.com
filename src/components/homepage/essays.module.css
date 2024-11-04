@@ -1,0 +1,17 @@
+.essaysSection {
+  background-color: var(--background-dark);
+  padding: var(--padding-edges);
+  height: var(--side-scroller-width);
+  color: var(--background-light);
+}
+
+.sideScroller {
+  display: flex;
+  position: sticky;
+  top: var(--padding-edges);
+  gap: 2rem;
+
+  & > * {
+    flex: 0 0 min(50vh, 90vw);
+  }
+}

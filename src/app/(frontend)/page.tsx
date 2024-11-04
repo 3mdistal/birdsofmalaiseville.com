@@ -7,8 +7,8 @@ export default async function Home() {
   const homepage = await getHomepage()
   return (
     <>
-      <Intro {...homepage} />
-      <Essays />
+      <Intro homepage={homepage} />
+      <Essays homepage={homepage} />
       <About />
     </>
   )

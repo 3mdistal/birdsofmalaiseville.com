@@ -1,36 +1,29 @@
-import { getHomepage } from '@/utils/getHomepage'
-// import getServerUrl from '@/utils/getServerUrl'
-import Image from 'next/image'
-import Link from 'next/link'
+'use client'
 
-export default async function Essays() {
-  const homepage = await getHomepage()
+import { useLayoutEffect, useRef } from 'react'
+import type { Homepage } from '@/payload-types'
+import styles from './essays.module.css'
+import Card from './card'
+
+export default function Essays({ homepage }: { homepage: Homepage }) {
+  const sideScrollerRef = useRef<HTMLDivElement>(null)
+
+  useLayoutEffect(() => {
+    if (sideScrollerRef.current) {
+      const width = sideScrollerRef.current.scrollWidth
+      document.documentElement.style.setProperty('--side-scroller-width', `${width}px`)
+    }
+  }, [])
 
   return (
-    <section>
-      <h2>Essays</h2>
-      {homepage.essays.map(
-        (essay) =>
-          typeof essay !== 'string' &&
-          essay._status === 'published' && (
-            <div key={essay.id}>
-              <Link href={`/essays/${essay.slug}`}>
-                <h3>{essay.title}</h3>
-              </Link>
-              {typeof essay.bird !== 'string' && typeof essay.bird.cardWithText !== 'string' && (
-                <Image
-                  src={`${essay.bird.cardWithText.url}`}
-                  alt={essay.bird.cardWithText.alt}
-                  width={essay.bird.cardWithText.width ?? 0}
-                  height={essay.bird.cardWithText.height ?? 0}
-                />
-              )}
-              {essay.quote_html && typeof essay.quote_html !== 'string' && (
-                <div dangerouslySetInnerHTML={{ __html: essay.quote_html }} />
-              )}
-            </div>
-          ),
-      )}
+    <section className={styles.essaysSection}>
+      <div ref={sideScrollerRef} className={styles.sideScroller}>
+        {homepage.essays.map(
+          (essay) =>
+            typeof essay !== 'string' &&
+            essay._status === 'published' && <Card key={essay.id} essay={essay} />,
+        )}
+      </div>
     </section>
   )
 }

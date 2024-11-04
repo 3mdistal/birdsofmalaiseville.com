@@ -6,7 +6,9 @@ import { useLayoutEffect, useRef } from 'react'
 import { Homepage } from '@/payload-types'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-export default function Intro(homepage: Homepage) {
+// TODO: Add fade in to top of homepage.
+
+export default function Intro({ homepage }: { homepage: Homepage }) {
   const stickyRef = useRef<HTMLDivElement>(null)
   const introFlexRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -26,11 +28,27 @@ export default function Intro(homepage: Homepage) {
 
   return (
     <section className={styles.intro}>
-      <Image src="/trees.svg" alt="Trees" className={styles.trees} fill />
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
+        <Image src="/trees.svg" alt="Trees" className={styles.trees} fill />
+      </motion.div>
       <div className={styles.titleSection}>
         <div className={styles.sticky} ref={stickyRef}>
-          <h1 className={styles.title}>{homepage.title}</h1>
-          <p className={styles.subtitle}>{homepage.subtitle}</p>
+          <motion.h1
+            className={styles.title}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {homepage.title}
+          </motion.h1>
+          <motion.p
+            className={styles.subtitle}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 1 }}
+          >
+            {homepage.subtitle}
+          </motion.p>
         </div>
       </div>
       <div className={styles.introSection}>

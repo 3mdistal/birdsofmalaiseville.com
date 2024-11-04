@@ -41,7 +41,6 @@
 .introSection {
   margin-inline: auto;
   padding-top: calc(var(--title-section-height) / 2);
-  padding-bottom: calc(var(--title-section-height) / 2);
   max-width: var(--content-width);
   min-height: calc(100svh - var(--title-section-height));
 }

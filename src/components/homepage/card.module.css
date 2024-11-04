@@ -1,0 +1,12 @@
+.card {
+  position: relative;
+  aspect-ratio: 572/1008;
+  width: min(50svh, 90vw);
+}
+
+.back {
+}
+
+.front {
+  position: absolute;
+}
