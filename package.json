@@ -26,6 +26,7 @@
     "@payloadcms/storage-vercel-blob": "beta",
     "@payloadcms/ui": "beta",
     "cross-env": "^7.0.3",
+    "framer-motion": "12.0.0-alpha.0",
     "graphql": "^16.9.0",
     "lucide-react": "^0.378.0",
     "next": "^15.0.1",

@@ -4,15 +4,23 @@ import styles from './intro.module.css'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import { Homepage } from '@/payload-types'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function Intro(homepage: Homepage) {
   const stickyRef = useRef<HTMLDivElement>(null)
+  const introFlexRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: introFlexRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const xLeft = useTransform(scrollYProgress, [0, 0.5], [-200, 0])
+  const xRight = useTransform(scrollYProgress, [0, 0.5], [200, 0])
 
   useEffect(() => {
     if (stickyRef.current) {
       const height = stickyRef.current.offsetHeight
       document.documentElement.style.setProperty('--title-section-height', `${height}px`)
-      console.log(height)
     }
   }, [])
 
@@ -26,11 +34,17 @@ export default function Intro(homepage: Homepage) {
         </div>
       </div>
       <div className={styles.introSection}>
-        <div
-          className={styles.introText}
-          dangerouslySetInnerHTML={{ __html: homepage.intro_html as TrustedHTML }}
-        />
-        <Image className={styles.nest} src="/nest.svg" alt="Nest" width={100} height={100} />
+        <div ref={introFlexRef} className={styles.introFlex}>
+          <motion.div style={{ x: xLeft }}>
+            <div
+              className={styles.introText}
+              dangerouslySetInnerHTML={{ __html: homepage.intro_html as TrustedHTML }}
+            />
+          </motion.div>
+          <motion.div style={{ x: xRight }}>
+            <Image className={styles.nest} src="/nest.svg" alt="Nest" width={400} height={400} />
+          </motion.div>
+        </div>
       </div>
     </section>
   )

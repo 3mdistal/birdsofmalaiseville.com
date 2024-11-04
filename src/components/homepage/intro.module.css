@@ -35,17 +35,25 @@
 }
 
 .introSection {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
   margin-inline: auto;
   padding-top: calc(var(--title-section-height) / 2);
+  padding-bottom: calc(var(--title-section-height) / 2);
   max-width: var(--content-width);
   min-height: calc(100svh - var(--title-section-height));
+}
+
+.introFlex {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 
   @media (max-width: 64rem) {
     flex-direction: column-reverse;
-    justify-content: flex-end;
+  }
+
+  & > * {
+    flex: 1;
+    width: 100%;
   }
 }
 
@@ -60,10 +68,6 @@
 }
 
 .nest {
-  width: 50%;
+  width: 100%;
   object-fit: fit;
-
-  @media (max-width: 64rem) {
-    width: 100%;
-  }
 }
