@@ -3,10 +3,14 @@
 }
 
 .titleSection {
-  padding-top: 20svh;
+  padding-top: 38svh;
   min-height: calc(
     100svh + var(--title-section-height, 10svh) + calc(var(--title-section-height, 10svh) / 2)
   );
+
+  @media (max-width: 48rem) {
+    padding-top: 25svh;
+  }
 }
 
 .sticky {
