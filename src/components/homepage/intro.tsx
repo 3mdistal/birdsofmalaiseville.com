@@ -2,7 +2,7 @@
 
 import styles from './intro.module.css'
 import Image from 'next/image'
-import { useEffect, useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { Homepage } from '@/payload-types'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
@@ -17,7 +17,7 @@ export default function Intro(homepage: Homepage) {
   const xLeft = useTransform(scrollYProgress, [0, 0.5], [-200, 0])
   const xRight = useTransform(scrollYProgress, [0, 0.5], [200, 0])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (stickyRef.current) {
       const height = stickyRef.current.offsetHeight
       document.documentElement.style.setProperty('--title-section-height', `${height}px`)
