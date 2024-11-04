@@ -1,5 +1,5 @@
 import { getHomepage } from '@/utils/getHomepage'
-import getServerUrl from '@/utils/getServerUrl'
+// import getServerUrl from '@/utils/getServerUrl'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -19,7 +19,7 @@ export default async function Essays() {
               </Link>
               {typeof essay.bird !== 'string' && typeof essay.bird.cardWithText !== 'string' && (
                 <Image
-                  src={`${getServerUrl()}${essay.bird.cardWithText.url}`}
+                  src={`${essay.bird.cardWithText.url}`}
                   alt={essay.bird.cardWithText.alt}
                   width={essay.bird.cardWithText.width ?? 0}
                   height={essay.bird.cardWithText.height ?? 0}
