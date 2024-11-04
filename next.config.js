@@ -14,7 +14,7 @@ const nextConfig = {
     return [
       {
         source: '/api/media/file/:filename*',
-        destination: 'https://birdsofmalaiseville-media.public.blob.vercel-storage.com/:filename*',
+        destination: 'https://1des1qmcmnaqih0h.public.blob.vercel-storage.com/:filename*',
       },
     ]
   },
