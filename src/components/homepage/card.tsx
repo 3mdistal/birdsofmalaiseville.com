@@ -7,9 +7,12 @@ export default function Card({ essay }: { essay: Essay }) {
   return (
     <div className={styles.card}>
       <div className={styles.back}>
-        <h3>{essay.title}</h3>
-        <div dangerouslySetInnerHTML={{ __html: essay.quote_html as string }} />
-        <Link href={`/essays/${essay.slug}`}>
+        <h3 className={styles.title}>{essay.title}</h3>
+        <div
+          className={styles.quote}
+          dangerouslySetInnerHTML={{ __html: essay.quote_html as string }}
+        />
+        <Link className={styles.readMore} href={`/essays/${essay.slug}`}>
           <p>Read More</p>
         </Link>
       </div>
