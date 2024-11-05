@@ -3,6 +3,10 @@
   padding: var(--padding-edges);
   height: var(--side-scroller-width);
   color: var(--background-light);
+
+  @media (max-width: 48rem) {
+    height: auto;
+  }
 }
 
 .sideScroller {
@@ -10,6 +14,12 @@
   position: sticky;
   top: var(--padding-edges);
   gap: 4rem;
+
+  @media (max-width: 48rem) {
+    position: static;
+    flex-direction: column;
+    align-items: center;
+  }
 
   & > * {
     flex: 0 0 min(50vh, 90vw);
