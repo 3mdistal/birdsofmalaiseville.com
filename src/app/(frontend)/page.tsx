@@ -9,7 +9,7 @@ export default async function Home() {
     <>
       <Intro homepage={homepage} />
       <Essays homepage={homepage} />
-      <About />
+      <About homepage={homepage} />
     </>
   )
 }

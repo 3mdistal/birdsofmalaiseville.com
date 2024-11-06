@@ -1,29 +1,38 @@
 import Image from 'next/image'
-import { getHomepage } from '@/utils/getHomepage'
+import type { Homepage } from '@/payload-types'
+import styles from './about.module.css'
 
-export default async function About() {
-  const homepage = await getHomepage()
+export default function About({ homepage }: { homepage: Homepage }) {
   return (
-    <section>
-      <h2>About</h2>
-      {homepage.bios.map((bio) => (
-        <div key={bio.id}>
-          {typeof bio.image !== 'string' && (
-            <Image
-              src={bio.image.url ?? ''}
-              alt={bio.image.alt}
-              width={bio.image.width ?? 0}
-              height={bio.image.height ?? 0}
-            />
-          )}
-          <p>
-            <span>{bio.name}</span>
-            {bio.text_html && typeof bio.text_html !== 'string' && (
-              <span dangerouslySetInnerHTML={{ __html: bio.text_html }} />
+    <section className={styles.about}>
+      <div className={styles.aboutTitleContainer}>
+        <h2 className={styles.aboutTitle}>About</h2>
+      </div>
+
+      <div className={styles.bios}>
+        {homepage.bios.map((bio) => (
+          <div className={styles.bio} key={bio.id}>
+            {typeof bio.image !== 'string' && (
+              <Image
+                className={styles.bioImage}
+                src={bio.image.url ?? ''}
+                alt={bio.image.alt}
+                width={bio.image.width ?? 0}
+                height={bio.image.height ?? 0}
+              />
             )}
-          </p>
-        </div>
-      ))}
+            <div className={styles.bioContent}>
+              <p className={styles.bioName}>{bio.name}</p>
+              {bio.text_html && (
+                <div
+                  className={styles.bioText}
+                  dangerouslySetInnerHTML={{ __html: bio.text_html }}
+                />
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
