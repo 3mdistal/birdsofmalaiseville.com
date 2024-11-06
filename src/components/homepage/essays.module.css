@@ -5,6 +5,7 @@
   color: var(--background-light);
 
   @media (max-width: 48rem) {
+    padding-block: calc(var(--title-section-height) / 2);
     height: auto;
   }
 }

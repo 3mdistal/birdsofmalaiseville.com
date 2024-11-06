@@ -9,6 +9,10 @@
     height: auto;
   }
 
+  @media (max-width: 32rem) {
+    width: 100%;
+  }
+
   &:hover {
     .front {
       transform: rotateY(180deg);
@@ -47,8 +51,14 @@
   background-size: cover;
   background-color: var(--background-light);
   padding: 5rem;
+  aspect-ratio: 572/1008;
   height: var(--card-height);
   color: var(--background-dark);
+
+  @media (max-width: 48rem) {
+    padding: 3rem;
+    height: auto;
+  }
 }
 
 .front {
