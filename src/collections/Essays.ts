@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload'
-import slugify from 'slugify'
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
 
 export const Essays: CollectionConfig = {
