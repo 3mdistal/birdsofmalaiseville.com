@@ -24,7 +24,6 @@ export const Essays: CollectionConfig = {
       admin: {
         position: 'sidebar',
         description: 'The url of the essay (after `https://birdsofmalaiseville.com/essays/`).',
-        hidden: true,
       },
     },
     {
@@ -80,16 +79,6 @@ export const Essays: CollectionConfig = {
     },
     lexicalHTML('birdReport', { name: 'birdReport_html' }),
   ],
-  hooks: {
-    beforeChange: [
-      ({ data }) => {
-        if (data.title) {
-          data.slug = slugify(data.title, { lower: true })
-        }
-        return data
-      },
-    ],
-  },
   versions: {
     drafts: true,
     maxPerDoc: 10,
