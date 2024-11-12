@@ -1,5 +1,6 @@
 import { getAllBirds } from '@/utils/getAllBirds'
 import { getEssaysByBird } from '@/utils/getEssaysByBird'
+import { smartQuotify, dumbQuotify } from '@/utils/quotify'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -32,9 +33,9 @@ export default async function Essays() {
           {essays.map((essay) => (
             <div key={essay.id}>
               <Link href={`/essays/${essay.slug}`}>
-                <h2>{essay.title}</h2>
+                <h2>{dumbQuotify(essay.title)}</h2>
               </Link>
-              <div dangerouslySetInnerHTML={{ __html: essay.quote_html as TrustedHTML }} />
+              <div dangerouslySetInnerHTML={{ __html: smartQuotify(essay.quote_html ?? '') }} />
             </div>
           ))}
         </div>

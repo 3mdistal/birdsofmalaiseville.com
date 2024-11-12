@@ -1,6 +1,7 @@
 import type { Essay } from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
+import { smartQuotify, dumbQuotify } from '@/utils/quotify'
 import styles from './card.module.css'
 
 export default function Card({ essay }: { essay: Essay }) {
@@ -8,10 +9,10 @@ export default function Card({ essay }: { essay: Essay }) {
     <div className={styles.card}>
       <div className={styles.back}>
         <Image className={styles.cardBorder} src="/card-border.svg" alt="" fill />
-        <h3 className={styles.title}>{essay.title}</h3>
+        <h3 className={styles.title}>{dumbQuotify(essay.title)}</h3>
         <div
           className={styles.quote}
-          dangerouslySetInnerHTML={{ __html: essay.quote_html as string }}
+          dangerouslySetInnerHTML={{ __html: smartQuotify(essay.quote_html ?? '') }}
         />
         <Link className={styles.readMore} href={`/essays/${essay.slug}`}>
           <p>Read More</p>

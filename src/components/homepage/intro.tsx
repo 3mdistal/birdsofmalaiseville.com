@@ -4,6 +4,7 @@ import styles from './intro.module.css'
 import Image from 'next/image'
 import { useLayoutEffect, useRef } from 'react'
 import { Homepage } from '@/payload-types'
+import { smartQuotify } from '@/utils/quotify'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 // TODO: Add fade in to top of homepage.
@@ -56,7 +57,7 @@ export default function Intro({ homepage }: { homepage: Homepage }) {
           <motion.div style={{ x: xLeft }}>
             <div
               className={styles.introText}
-              dangerouslySetInnerHTML={{ __html: homepage.intro_html as TrustedHTML }}
+              dangerouslySetInnerHTML={{ __html: smartQuotify(homepage.intro_html ?? '') }}
             />
           </motion.div>
           <motion.div style={{ x: xRight }}>

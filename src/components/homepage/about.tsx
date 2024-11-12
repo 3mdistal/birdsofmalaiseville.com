@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import type { Homepage } from '@/payload-types'
 import styles from './about.module.css'
+import { smartQuotify } from '@/utils/quotify'
 
 export default function About({ homepage }: { homepage: Homepage }) {
   return (
@@ -26,7 +27,7 @@ export default function About({ homepage }: { homepage: Homepage }) {
               {bio.text_html && (
                 <div
                   className={styles.bioText}
-                  dangerouslySetInnerHTML={{ __html: bio.text_html }}
+                  dangerouslySetInnerHTML={{ __html: smartQuotify(bio.text_html ?? '') }}
                 />
               )}
             </div>

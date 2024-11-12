@@ -1,0 +1,40 @@
+.essayText {
+  width: 50%;
+
+  @media (max-width: 48rem) {
+    width: 100%;
+  }
+
+  & p {
+    margin-bottom: 1em;
+    max-width: 60ch;
+  }
+}
+
+.feather {
+  margin-inline: auto;
+  margin-block: var(--padding-edges);
+  width: 10%;
+  height: auto;
+
+  @media (max-width: 48rem) {
+    margin-block: calc(var(--padding-edges) * 2);
+  }
+}
+
+.branch {
+  margin-inline: auto;
+  margin-block: var(--padding-edges);
+  width: 20%;
+  height: auto;
+
+  @media (max-width: 48rem) {
+    margin-block: calc(var(--padding-edges) * 2);
+  }
+}
+
+.birdReportTitle {
+  margin-bottom: 0;
+  width: fit-content;
+  font-size: var(--h3-font-size);
+}
