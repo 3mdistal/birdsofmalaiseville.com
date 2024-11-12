@@ -40,6 +40,7 @@ export default function EssayText({ essay }: { essay: Essay }) {
       <Image className={styles.branch} src="/branch.svg" alt="" width={100} height={100} />
       <h2 className={styles.birdReportTitle}>Bird Report</h2>
       <div
+        className={styles.birdReportText}
         style={{ display: 'contents' }}
         dangerouslySetInnerHTML={{ __html: smartQuotify(essay.birdReport_html ?? '') }}
       />

@@ -1,4 +1,5 @@
 .essayText {
+  padding-block: var(--padding-edges);
   width: 50%;
 
   @media (max-width: 48rem) {
@@ -8,6 +9,14 @@
   & p {
     margin-bottom: 1em;
     max-width: 60ch;
+  }
+
+  & p:first-of-type:not(.birdReportText > p) {
+    &::first-letter {
+      font-size: var(--h3-font-size);
+      line-height: 0;
+      font-family: var(--font-signature);
+    }
   }
 }
 

@@ -1,20 +1,8 @@
 .flock {
   position: relative;
-  top: -100svh;
-  z-index: -1;
-  background: linear-gradient(to bottom, var(--background-light) 0%, var(--background-dark) 100%);
   height: 200svh;
-}
-
-.extraDarkDiv {
-  position: absolute;
-  bottom: -100svh;
-  background: var(--background-dark);
-  width: 100%;
-  height: 100svh;
 }
 
 .flockContent {
   position: absolute;
-  bottom: -100svh;
 }
