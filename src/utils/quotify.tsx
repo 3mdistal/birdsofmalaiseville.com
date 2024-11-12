@@ -2,7 +2,7 @@ export function smartQuotify(text: string): string {
   let result = text
 
   // First, convert HTML entities to regular quotes
-  result = result.replace(/&quot;/g, '"')
+  result = result.replace(/&quot;/g, '"').replace(/&apos;|&#39;/g, "'")
 
   // Then handle quotes in the correct order
   result = result
