@@ -4,6 +4,11 @@
   align-items: center;
   background: linear-gradient(to bottom, var(--background-light), var(--light-brown));
   padding: var(--padding-edges);
+
+  & h1 {
+    text-align: center;
+    text-wrap: balance;
+  }
 }
 
 .essayContent {
