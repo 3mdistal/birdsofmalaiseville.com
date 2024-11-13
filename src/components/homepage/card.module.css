@@ -7,7 +7,7 @@
   @media (max-width: 48rem) {
     position: sticky;
     top: 5svh;
-    width: min(50svh, 90vw);
+    width: min(50svh, 85vw);
     height: auto;
   }
 
