@@ -20,9 +20,6 @@
     position: static;
     flex-direction: column;
     align-items: center;
-  }
-
-  & > * {
-    flex: 0 0 min(50vh, 90vw);
+    gap: 8rem;
   }
 }

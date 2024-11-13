@@ -2,17 +2,13 @@
   --card-height: calc(100svh - 2 * var(--padding-edges));
   position: relative;
   aspect-ratio: 572/1008;
+  width: auto;
   height: var(--card-height);
 
   @media (max-width: 48rem) {
     position: sticky;
-    top: 5svh;
-    width: min(50svh, 85vw);
-    height: auto;
-  }
-
-  @media (max-width: 32rem) {
-    width: 100%;
+    top: 10svh;
+    --card-height: 80svh;
   }
 
   &:hover {
