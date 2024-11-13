@@ -5,6 +5,8 @@
   height: var(--card-height);
 
   @media (max-width: 48rem) {
+    position: sticky;
+    top: 5svh;
     width: min(50svh, 90vw);
     height: auto;
   }
