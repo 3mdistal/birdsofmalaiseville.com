@@ -2,6 +2,7 @@
 
 import styles from './intro.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useLayoutEffect, useRef } from 'react'
 import { Homepage } from '@/payload-types'
 import { smartQuotify } from '@/utils/quotify'
@@ -61,7 +62,9 @@ export default function Intro({ homepage }: { homepage: Homepage }) {
             />
           </motion.div>
           <motion.div style={{ x: xRight }}>
-            <Image className={styles.nest} src="/nest.svg" alt="Nest" width={400} height={400} />
+            <Link href="/essays">
+              <Image className={styles.nest} src="/nest.svg" alt="Nest" width={400} height={400} />
+            </Link>
           </motion.div>
         </div>
       </div>

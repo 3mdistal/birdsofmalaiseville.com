@@ -1,11 +1,10 @@
 import IndexView from '@/components/index-view/index-view'
+import IndexViewBackground from '@/components/index-view/index-view-background'
 import { getAllBirds } from '@/utils/getAllBirds'
 import { getEssaysByBird } from '@/utils/getEssaysByBird'
 
 export default async function Essays() {
   const birds = await getAllBirds()
-
-  // Todo: Make birds sortable in CMS.
 
   const birdsWithEssays = (
     await Promise.all(
@@ -21,5 +20,10 @@ export default async function Essays() {
     .filter((birdWithEssays) => birdWithEssays.essays.length > 0)
     .sort(() => Math.random() - 0.5)
 
-  return <IndexView birdsWithEssays={birdsWithEssays} />
+  return (
+    <>
+      <IndexView birdsWithEssays={birdsWithEssays} />
+      <IndexViewBackground />
+    </>
+  )
 }
