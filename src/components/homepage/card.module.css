@@ -11,6 +11,11 @@
     --card-height: 80svh;
   }
 
+  @media (max-width: 32rem) {
+    top: 5svh;
+    --card-height: 90svh;
+  }
+
   &:hover {
     .front {
       transform: rotateY(180deg);
