@@ -12,8 +12,8 @@
   }
 
   @media (max-width: 32rem) {
-    top: 5svh;
-    --card-height: 90svh;
+    top: 5dvh;
+    --card-height: 90dvh;
   }
 
   &:hover {
