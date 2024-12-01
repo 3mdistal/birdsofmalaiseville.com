@@ -1,5 +1,5 @@
 import EssayFrame from '@/components/article-view/essay-frame'
-import { getEssay } from '@/utils/getEssay'
+import { getEssay } from '@/lib/utils/getEssay'
 import { Metadata } from 'next'
 
 type Props = {

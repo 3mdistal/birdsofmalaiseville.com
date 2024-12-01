@@ -1,7 +1,7 @@
-import type { Bird, Essay } from '@/payload-types'
+import type { Bird, Essay } from '@payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { dumbQuotify, smartQuotify } from '@/utils/quotify'
+import { dumbQuotify, smartQuotify } from '@/lib/utils/quotify'
 import styles from './index-view.module.css'
 
 export default function IndexView({

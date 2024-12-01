@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
-import { Essay } from '@/payload-types'
+import { Essay } from '@payload-types'
 import styles from './essay-text.module.css'
-import { smartQuotify } from '@/utils/quotify'
+import { smartQuotify } from '@/lib/utils/quotify'
 import Image from 'next/image'
 import React from 'react'
 

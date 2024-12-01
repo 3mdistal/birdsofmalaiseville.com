@@ -4,8 +4,8 @@ import styles from './intro.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLayoutEffect, useRef } from 'react'
-import { Homepage } from '@/payload-types'
-import { smartQuotify } from '@/utils/quotify'
+import { Homepage } from '@payload-types'
+import { smartQuotify } from '@/lib/utils/quotify'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 // TODO: Add fade in to top of homepage.

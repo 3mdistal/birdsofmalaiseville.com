@@ -1,4 +1,4 @@
-import { getAllBirds } from '@/utils/getAllBirds'
+import { getAllBirds } from '@/lib/utils/getAllBirds'
 import Image from 'next/image'
 
 export default async function Birds() {

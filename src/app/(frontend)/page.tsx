@@ -2,7 +2,7 @@ import About from '@/components/homepage/about'
 import Flock from '@/components/homepage/flock'
 import Essays from '@/components/homepage/essays'
 import Intro from '@/components/homepage/intro'
-import { getHomepage } from '@/utils/getHomepage'
+import { getHomepage } from '@/lib/utils/getHomepage'
 import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {

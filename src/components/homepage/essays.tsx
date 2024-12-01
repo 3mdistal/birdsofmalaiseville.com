@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import type { Homepage } from '@/payload-types'
+import type { Homepage } from '@payload-types'
 import styles from './essays.module.css'
 import Card from './card'
 

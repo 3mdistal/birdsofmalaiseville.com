@@ -1,7 +1,7 @@
-import type { Essay } from '@/payload-types'
+import type { Essay } from '@payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { smartQuotify, dumbQuotify } from '@/utils/quotify'
+import { smartQuotify, dumbQuotify } from '@/lib/utils/quotify'
 import styles from './card.module.css'
 
 export default function Card({ essay }: { essay: Essay }) {
