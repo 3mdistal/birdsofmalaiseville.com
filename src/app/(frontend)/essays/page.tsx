@@ -2,6 +2,23 @@ import IndexView from '@/components/index-view/index-view'
 import IndexViewBackground from '@/components/index-view/index-view-background'
 import { getAllBirds } from '@/utils/getAllBirds'
 import { getEssaysByBird } from '@/utils/getEssaysByBird'
+import { Metadata } from 'next'
+
+const description =
+  'Explore our collection of essays about the birds of Malaiseville, each one telling a unique story through art and words.'
+
+export const metadata: Metadata = {
+  title: 'Essays',
+  description,
+  openGraph: {
+    title: 'Essays | Birds of Malaiseville',
+    description,
+  },
+  twitter: {
+    title: 'Essays | Birds of Malaiseville',
+    description,
+  },
+}
 
 export default async function Essays() {
   const birds = await getAllBirds()

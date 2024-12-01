@@ -3,6 +3,24 @@ import Flock from '@/components/homepage/flock'
 import Essays from '@/components/homepage/essays'
 import Intro from '@/components/homepage/intro'
 import { getHomepage } from '@/utils/getHomepage'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const homepage = await getHomepage()
+
+  return {
+    title: homepage.title,
+    description: homepage.subtitle,
+    openGraph: {
+      title: homepage.title,
+      description: homepage.subtitle,
+    },
+    twitter: {
+      title: homepage.title,
+      description: homepage.subtitle,
+    },
+  }
+}
 
 export default async function Home() {
   const homepage = await getHomepage()
