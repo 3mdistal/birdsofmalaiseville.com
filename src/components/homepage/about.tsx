@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import type { Homepage } from '@/payload-types'
+import type { Homepage } from '@payload-types'
 import styles from './about.module.css'
-import { smartQuotify } from '@/utils/quotify'
+import { smartQuotify } from '@/lib/utils/quotify'
 
 export default function About({ homepage }: { homepage: Homepage }) {
   return (

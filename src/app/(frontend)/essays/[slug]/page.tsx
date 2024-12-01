@@ -1,5 +1,5 @@
 import EssayFrame from '@/components/article-view/essay-frame'
-import { getEssay } from '@/utils/getEssay'
+import { getEssay } from '@/lib/utils/getEssay'
 import { Metadata } from 'next'
 
 type Props = {
@@ -51,6 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   }
 }
+
+export const dynamic = 'force-dynamic'
 
 export default async function Essay({ params }: Props) {
   const resolvedParams = await params

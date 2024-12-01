@@ -2,9 +2,9 @@
 
 import EssayCard from './essay-card'
 import EssayText from './essay-text'
-import { Bird, Essay } from '@/payload-types'
+import { Bird, Essay } from '@payload-types'
 import Link from 'next/link'
-import { dumbQuotify } from '@/utils/quotify'
+import { dumbQuotify } from '@/lib/utils/quotify'
 import styles from './essay-frame.module.css'
 
 // todo: Add a way to go to next and previous essays.

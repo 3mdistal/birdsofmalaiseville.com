@@ -1,7 +1,7 @@
 import IndexView from '@/components/index-view/index-view'
 import IndexViewBackground from '@/components/index-view/index-view-background'
-import { getAllBirds } from '@/utils/getAllBirds'
-import { getEssaysByBird } from '@/utils/getEssaysByBird'
+import { getAllBirds } from '@/lib/utils/getAllBirds'
+import { getEssaysByBird } from '@/lib/utils/getEssaysByBird'
 import { Metadata } from 'next'
 
 const description =
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     description,
   },
 }
+
+export const dynamic = 'force-dynamic'
 
 export default async function Essays() {
   const birds = await getAllBirds()

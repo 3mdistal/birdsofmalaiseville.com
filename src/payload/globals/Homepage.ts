@@ -1,9 +1,18 @@
 import { GlobalConfig } from 'payload'
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
+import { revalidateHomepage } from '@/lib/utils/revalidate'
+
 export const Homepage: GlobalConfig = {
   slug: 'homepage',
   admin: {
-    group: 'Pages',
+    group: 'Content',
+  },
+  hooks: {
+    afterChange: [
+      async () => {
+        revalidateHomepage()
+      },
+    ],
   },
   fields: [
     {
