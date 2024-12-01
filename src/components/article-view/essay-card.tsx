@@ -1,4 +1,4 @@
-import { Bird } from '@/payload-types'
+import { Bird } from '@payload-types'
 import styles from './essay-card.module.css'
 import Image from 'next/image'
 
