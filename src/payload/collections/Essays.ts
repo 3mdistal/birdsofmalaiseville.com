@@ -1,11 +1,28 @@
 import { CollectionConfig } from 'payload'
 import { HTMLConverterFeature, lexicalEditor, lexicalHTML } from '@payloadcms/richtext-lexical'
+import { revalidateEssay } from '@/lib/utils/revalidate'
 
 export const Essays: CollectionConfig = {
   slug: 'essays',
   admin: {
     useAsTitle: 'title',
     group: 'Content',
+  },
+  hooks: {
+    afterChange: [
+      async ({ doc }) => {
+        if (doc._status === 'published') {
+          revalidateEssay(doc.slug)
+        }
+      },
+    ],
+    afterDelete: [
+      async ({ doc }) => {
+        if (doc.slug) {
+          revalidateEssay(doc.slug)
+        }
+      },
+    ],
   },
   fields: [
     {
