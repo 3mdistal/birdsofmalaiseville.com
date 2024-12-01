@@ -3,11 +3,12 @@ import { getEssay } from '@/utils/getEssay'
 import { Metadata } from 'next'
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const essay = (await getEssay(params.slug)).docs[0]
+  const resolvedParams = await params
+  const essay = (await getEssay(resolvedParams.slug)).docs[0]
   const birdImage =
     typeof essay.bird !== 'string' && typeof essay.bird.cardWithText !== 'string'
       ? essay.bird.cardWithText
@@ -51,8 +52,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function Essay({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = (await params).slug
-  const essay = (await getEssay(slug)).docs[0]
+export default async function Essay({ params }: Props) {
+  const resolvedParams = await params
+  const essay = (await getEssay(resolvedParams.slug)).docs[0]
   return <EssayFrame essay={essay} />
 }
