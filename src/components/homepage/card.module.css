@@ -48,7 +48,6 @@
     transform 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
   transition-delay: 0.2s;
-  box-sizing: border-box;
   border-radius: 3rem;
   background-image: url('/new-texture.webp');
   background-position: center;
