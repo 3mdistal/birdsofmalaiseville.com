@@ -3,7 +3,7 @@
 import EssayCard from './essay-card'
 import EssayText from './essay-text'
 import { Bird, Essay } from '@payload-types'
-import Link from 'next/link'
+import { Link } from 'next-view-transitions'
 import { dumbQuotify } from '@/lib/utils/quotify'
 import styles from './essay-frame.module.css'
 
@@ -12,9 +12,11 @@ import styles from './essay-frame.module.css'
 export default function EssayFrame({ essay }: { essay: Essay }) {
   return (
     <div className={styles.essayFrame}>
-      <h1>{dumbQuotify(essay.title)}</h1>
+      <h1 style={{ viewTransitionName: `title-${essay.slug}` }}>{dumbQuotify(essay.title)}</h1>
       <div className={styles.essayContent}>
-        <EssayCard card={essay.bird as Bird} />
+        <div style={{ viewTransitionName: `card-${essay.slug}` }}>
+          <EssayCard card={essay.bird as Bird} />
+        </div>
         <EssayText essay={essay} />
       </div>
       <div className={styles.links}>

@@ -1,4 +1,5 @@
 import Css from '@/styles/css'
+import { ViewTransitions } from 'next-view-transitions'
 
 export const metadata = {
   metadataBase: new URL('https://birdsofmalaiseville.com'),
@@ -27,12 +28,14 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning={true} style={{ backgroundColor: '#fdf8f2' }}>
-        <Css>
-          <div className="appRoot">{children}</div>
-        </Css>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body suppressHydrationWarning={true} style={{ backgroundColor: '#fdf8f2' }}>
+          <Css>
+            <div className="appRoot">{children}</div>
+          </Css>
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }
