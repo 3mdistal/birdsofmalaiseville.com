@@ -2,7 +2,7 @@
   --card-height: calc(100svh - 2 * var(--padding-edges));
   position: relative;
   aspect-ratio: 572/1008;
-  width: auto;
+  /* width: auto; */
   height: var(--card-height);
 
   @media (max-width: 48rem) {
@@ -48,18 +48,20 @@
     transform 0.5s ease-in-out,
     opacity 0.5s ease-in-out;
   transition-delay: 0.2s;
+  box-sizing: border-box;
   border-radius: 3rem;
   background-image: url('/new-texture.webp');
   background-position: center;
   background-size: cover;
   background-color: var(--background-light);
   padding: 5rem;
-  aspect-ratio: 572/1008;
+  width: calc(var(--card-height) * (572 / 1008));
   height: var(--card-height);
   color: var(--background-dark);
 
   @media (max-width: 48rem) {
     padding: 3rem;
+    width: auto;
     height: auto;
   }
 }
