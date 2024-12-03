@@ -11,12 +11,14 @@ export default function EssayCard({ card }: { card: Bird }) {
 
   return (
     <div className={styles.essayCard}>
-      <Image
-        src={media.url ?? ''}
-        alt={media.alt ?? ''}
-        width={media.width ?? 0}
-        height={media.height ?? 0}
-      />
+      <div style={{ viewTransitionName: `bird-${card.id}` }}>
+        <Image
+          src={media.url ?? ''}
+          alt={media.alt ?? ''}
+          width={media.width ?? 0}
+          height={media.height ?? 0}
+        />
+      </div>
     </div>
   )
 }

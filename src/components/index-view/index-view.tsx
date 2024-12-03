@@ -16,14 +16,15 @@ export default function IndexView({
         {birdsWithEssays.map(({ bird, essays }) => (
           <div key={bird.id} className={styles.birdContainer}>
             {typeof bird.cardWithText !== 'string' && (
-              <Image
-                src={bird.cardWithText.url ?? ''}
-                alt={bird.cardWithText.alt}
-                width={bird.cardWithText.width ?? 0}
-                height={bird.cardWithText.height ?? 0}
-                className={styles.birdImage}
-                style={{ viewTransitionName: `bird-image-${bird.id}` }}
-              />
+              <div style={{ viewTransitionName: `bird-${bird.id}` }}>
+                <Image
+                  src={bird.cardWithText.url ?? ''}
+                  alt={bird.cardWithText.alt}
+                  width={bird.cardWithText.width ?? 0}
+                  height={bird.cardWithText.height ?? 0}
+                  className={styles.birdImage}
+                />
+              </div>
             )}
             <div className={styles.essaysContainer}>
               {essays.map((essay) => (
