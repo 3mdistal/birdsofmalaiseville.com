@@ -1,5 +1,6 @@
 import Css from '@/styles/css'
 import { ViewTransitions } from 'next-view-transitions'
+import '@/styles/view-transitions.css'
 
 export const metadata = {
   metadataBase: new URL('https://birdsofmalaiseville.com'),

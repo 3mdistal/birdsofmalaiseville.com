@@ -25,7 +25,7 @@ export default function Card({ essay }: { essay: Essay }) {
         </Link>
       </div>
       {typeof essay.bird !== 'string' && typeof essay.bird.cardWithText !== 'string' && (
-        <div className={styles.front} style={{ viewTransitionName: `bird-${essay.bird.id}` }}>
+        <div className={styles.front}>
           <Image
             src={`${essay.bird.cardWithText.url}`}
             alt={essay.bird.cardWithText.alt}
