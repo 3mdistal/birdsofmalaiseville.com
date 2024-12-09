@@ -17,7 +17,6 @@
   gap: var(--padding-edges);
   margin-bottom: calc(var(--padding-edges) * 2);
   width: 100%;
-  max-width: var(--content-width);
 
   & > div:first-child {
     display: flex;
