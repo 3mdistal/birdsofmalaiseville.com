@@ -48,7 +48,7 @@ export default function Essays({ homepage }: { homepage: Homepage }) {
   }, [])
 
   return (
-    <section ref={containerRef} className={styles.essaysSection}>
+    <section ref={containerRef} className={styles.essaysSection} id="cards">
       <motion.div ref={sideScrollerRef} className={styles.sideScroller} style={{ x: translateX }}>
         {homepage.essays.map(
           (essay) =>

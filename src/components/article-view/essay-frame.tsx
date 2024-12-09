@@ -24,9 +24,9 @@ export default function EssayFrame({ essay }: { essay: Essay }) {
         <EssayText essay={essay} />
       </div>
       <div className={styles.links}>
-        <button onClick={() => window.history.back()}>
-          <p>Back</p>
-        </button>
+        <Link href="/#cards" prefetch={true}>
+          <p>Home</p>
+        </Link>
         <Link href={`/essays`} prefetch={true}>
           <p>All Essays</p>
         </Link>

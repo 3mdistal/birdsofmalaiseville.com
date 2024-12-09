@@ -33,17 +33,6 @@
   justify-content: space-around;
   width: 100%;
 
-  & button {
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
-    border: none;
-    background: none;
-    padding: 0;
-    color: inherit;
-  }
-
-  & button,
   & a {
     position: relative;
     width: fit-content;
