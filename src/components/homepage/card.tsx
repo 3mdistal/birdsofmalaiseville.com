@@ -9,15 +9,12 @@ export default function Card({ essay }: { essay: Essay }) {
   console.log('Homepage Card - Full Bird:', essay.bird)
 
   return (
-    <div className={styles.card} style={{ viewTransitionName: `card-${essay.slug}` }}>
+    <div className={styles.card}>
       <div className={styles.back}>
         <Image className={styles.cardBorder} src="/card-border.svg" alt="" fill />
-        <h3 className={styles.title} style={{ viewTransitionName: `title-${essay.slug}` }}>
-          {dumbQuotify(essay.title)}
-        </h3>
+        <h3 className={styles.title}>{dumbQuotify(essay.title)}</h3>
         <div
           className={styles.quote}
-          style={{ viewTransitionName: `quote-${essay.slug}` }}
           dangerouslySetInnerHTML={{ __html: smartQuotify(essay.quote_html ?? '') }}
         />
         <Link className={styles.readMore} href={`/essays/${essay.slug}`} prefetch={true}>
