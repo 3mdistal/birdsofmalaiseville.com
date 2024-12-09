@@ -55,14 +55,12 @@
   background-size: cover;
   background-color: var(--background-light);
   padding: 15cqi;
-  width: calc(var(--card-height) * (572 / 1008));
   height: var(--card-height);
   color: var(--background-dark);
 
   @media (max-width: 48rem) {
     padding: 3rem;
-    width: auto;
-    height: auto;
+    height: var(--card-height);
   }
 }
 
