@@ -5,6 +5,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { resendAdapter } from '@payloadcms/email-resend'
 
 import Users from './collections/Users'
 import { Media } from './collections/Media'
@@ -47,6 +48,11 @@ export default buildConfig({
   editor: lexicalEditor({}),
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
+  }),
+  email: resendAdapter({
+    defaultFromAddress: 'admin@birdsofmalaiseville.com',
+    defaultFromName: 'Birds of Malaiseville',
+    apiKey: process.env.RESEND_KEY || '',
   }),
   globals: [Homepage],
   collections: [Users, Media, Birds, Essays],
