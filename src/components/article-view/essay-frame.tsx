@@ -10,8 +10,6 @@ import styles from './essay-frame.module.css'
 // todo: Add a way to go to next and previous essays.
 
 export default function EssayFrame({ essay }: { essay: Essay }) {
-  console.log('Essay Frame - Essay:', essay)
-  console.log('Essay Frame - Bird:', essay.bird)
   const birdId = typeof essay.bird !== 'string' ? essay.bird.id : null
 
   return (

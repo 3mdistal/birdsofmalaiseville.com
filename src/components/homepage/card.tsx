@@ -5,9 +5,6 @@ import { smartQuotify, dumbQuotify } from '@/lib/utils/quotify'
 import styles from './card.module.css'
 
 export default function Card({ essay }: { essay: Essay }) {
-  console.log('Homepage Card - Bird ID:', typeof essay.bird !== 'string' ? essay.bird.id : 'string')
-  console.log('Homepage Card - Full Bird:', essay.bird)
-
   return (
     <div className={styles.card}>
       <div className={styles.back}>
