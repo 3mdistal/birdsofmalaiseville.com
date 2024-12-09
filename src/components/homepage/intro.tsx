@@ -62,7 +62,7 @@ export default function Intro({ homepage }: { homepage: Homepage }) {
             />
           </motion.div>
           <motion.div style={{ x: xRight }}>
-            <Link href="/essays">
+            <Link href="/essays" prefetch={true}>
               <Image className={styles.nest} src="/nest.svg" alt="Nest" width={400} height={400} />
             </Link>
           </motion.div>

@@ -29,7 +29,7 @@ export default function IndexView({
             <div className={styles.essaysContainer}>
               {essays.map((essay) => (
                 <div key={essay.id} className={styles.essay}>
-                  <Link href={`/essays/${essay.slug}`}>
+                  <Link href={`/essays/${essay.slug}`} prefetch={true}>
                     <h2 style={{ viewTransitionName: `title-${essay.slug}` }}>
                       {dumbQuotify(essay.title)}
                     </h2>

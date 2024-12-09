@@ -20,7 +20,7 @@ export default function Card({ essay }: { essay: Essay }) {
           style={{ viewTransitionName: `quote-${essay.slug}` }}
           dangerouslySetInnerHTML={{ __html: smartQuotify(essay.quote_html ?? '') }}
         />
-        <Link className={styles.readMore} href={`/essays/${essay.slug}`}>
+        <Link className={styles.readMore} href={`/essays/${essay.slug}`} prefetch={true}>
           <p>Read More</p>
         </Link>
       </div>

@@ -27,7 +27,7 @@ export default function EssayFrame({ essay }: { essay: Essay }) {
         <button onClick={() => window.history.back()}>
           <p>Back</p>
         </button>
-        <Link href={`/essays`}>
+        <Link href={`/essays`} prefetch={true}>
           <p>All Essays</p>
         </Link>
       </div>
