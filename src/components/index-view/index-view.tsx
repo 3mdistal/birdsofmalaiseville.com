@@ -44,6 +44,11 @@ export default function IndexView({
             </div>
           </div>
         ))}
+        <div className={styles.homeLink}>
+          <Link href="/#cards" prefetch={true}>
+            <p>Home</p>
+          </Link>
+        </div>
       </div>
     </>
   )

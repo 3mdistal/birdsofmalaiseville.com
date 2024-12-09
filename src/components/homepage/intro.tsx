@@ -8,8 +8,6 @@ import { useLayoutEffect, useRef } from 'react'
 import { Homepage } from '@payload-types'
 import { smartQuotify } from '@/lib/utils/quotify'
 
-// TODO: Add fade in to top of homepage.
-
 export default function Intro({ homepage }: { homepage: Homepage }) {
   const stickyRef = useRef<HTMLDivElement>(null)
   const introFlexRef = useRef<HTMLDivElement>(null)

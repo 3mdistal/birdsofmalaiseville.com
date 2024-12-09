@@ -130,3 +130,39 @@
     text-align: right;
   }
 }
+
+.homeLink {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(var(--padding-edges) * 2);
+  width: 100%;
+
+  & a {
+    position: relative;
+    width: fit-content;
+    color: var(--background-light);
+
+    &::after {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      background-color: var(--background-light);
+      width: 100%;
+      height: 1px;
+      content: '';
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+
+    & p {
+      color: inherit;
+      font-size: var(--h3-font-size);
+      font-family: var(--font-signature);
+    }
+  }
+}

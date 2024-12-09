@@ -10,8 +10,6 @@ import styles from './essay-frame.module.css'
 // todo: Add a way to go to next and previous essays.
 
 export default function EssayFrame({ essay }: { essay: Essay }) {
-  console.log('Essay Frame - Essay:', essay)
-  console.log('Essay Frame - Bird:', essay.bird)
   const birdId = typeof essay.bird !== 'string' ? essay.bird.id : null
 
   return (
@@ -24,9 +22,9 @@ export default function EssayFrame({ essay }: { essay: Essay }) {
         <EssayText essay={essay} />
       </div>
       <div className={styles.links}>
-        <button onClick={() => window.history.back()}>
-          <p>Back</p>
-        </button>
+        <Link href="/#cards" prefetch={true}>
+          <p>Home</p>
+        </Link>
         <Link href={`/essays`} prefetch={true}>
           <p>All Essays</p>
         </Link>

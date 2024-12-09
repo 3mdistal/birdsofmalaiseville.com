@@ -1,8 +1,8 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 
 export const getAllBirds = async () => {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const birds = await payload.find({
     collection: 'birds',
     sort: 'name',

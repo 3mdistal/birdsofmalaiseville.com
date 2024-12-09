@@ -102,10 +102,18 @@
 
 .bioText {
   display: contents;
-}
 
-.bioText p {
-  display: inline;
-  font-size: var(--big-p-font-size);
-  line-height: 1.7;
+  & p {
+    display: inline;
+    font-size: var(--big-p-font-size);
+    line-height: 1.7;
+  }
+
+  & a {
+    text-decoration: underline;
+
+    &:hover {
+      color: hsl(30, 30%, 25%);
+    }
+  }
 }

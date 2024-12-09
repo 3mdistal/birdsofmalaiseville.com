@@ -1,8 +1,8 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 
 export const getEssay = async (slug: string) => {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
 
   const essay = await payload.find({
     collection: 'essays',
