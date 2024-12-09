@@ -11,7 +11,7 @@ export default function EssayCard({ card }: { card: Bird }) {
 
   return (
     <div className={styles.essayCard}>
-      <div style={{ viewTransitionName: `bird-${card.id}` }}>
+      <div>
         <Image
           src={media.url ?? ''}
           alt={media.alt ?? ''}

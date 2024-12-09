@@ -16,7 +16,7 @@ export default function IndexView({
         {birdsWithEssays.map(({ bird, essays }) => (
           <div key={bird.id} className={styles.birdContainer}>
             {typeof bird.cardWithText !== 'string' && (
-              <div style={{ viewTransitionName: `bird-${bird.id}` }}>
+              <div>
                 <Image
                   src={bird.cardWithText.url ?? ''}
                   alt={bird.cardWithText.alt}
@@ -30,11 +30,8 @@ export default function IndexView({
               {essays.map((essay) => (
                 <div key={essay.id} className={styles.essay}>
                   <Link href={`/essays/${essay.slug}`} prefetch={true}>
-                    <h2 style={{ viewTransitionName: `title-${essay.slug}` }}>
-                      {dumbQuotify(essay.title)}
-                    </h2>
+                    <h2>{dumbQuotify(essay.title)}</h2>
                     <div
-                      style={{ viewTransitionName: `quote-${essay.slug}` }}
                       dangerouslySetInnerHTML={{ __html: smartQuotify(essay.quote_html ?? '') }}
                     />
                     <h3>Read More</h3>

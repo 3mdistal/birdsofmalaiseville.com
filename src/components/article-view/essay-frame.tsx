@@ -14,7 +14,7 @@ export default function EssayFrame({ essay }: { essay: Essay }) {
 
   return (
     <div className={styles.essayFrame}>
-      <h1 style={{ viewTransitionName: `title-${essay.slug}` }}>{dumbQuotify(essay.title)}</h1>
+      <h1>{dumbQuotify(essay.title)}</h1>
       <div className={styles.essayContent}>
         <div>
           <EssayCard card={essay.bird as Bird} />
