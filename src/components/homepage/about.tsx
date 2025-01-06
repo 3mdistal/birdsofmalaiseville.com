@@ -35,9 +35,7 @@ export default function About({ homepage }: { homepage: Homepage }) {
 
       <div className={styles.bios}>
         {homepage.bios.map((bio) => {
-          console.log('Raw bio text_html:', bio.text_html)
           const processed = processHTML(bio.text_html ?? '')
-          console.log('After processing:', processed)
 
           return (
             <div className={styles.bio} key={bio.id}>
