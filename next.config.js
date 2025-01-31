@@ -9,6 +9,7 @@ const nextConfig = {
         hostname: '**.vercel-storage.com',
       },
     ],
+    unoptimized: process.env.NODE_ENV === 'development', // This is to see images in dev.
   },
   async rewrites() {
     return [
